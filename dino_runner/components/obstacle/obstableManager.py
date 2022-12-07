@@ -3,7 +3,7 @@ import pygame
 from dino_runner.components.obstacle.cactus import Cactus
 from dino_runner.utils.constants import SMALL_CACTUS
 
-class ObstacleManager:
+class ObstacleManager():
 
     def __init__(self):
         self.obstacle = []
@@ -14,7 +14,7 @@ class ObstacleManager:
         
         for obstacle in self.obstacle:
             obstacle.update(game.game_speed, self.obstacle)
-            if game.player.dino_rect.colliderect():
+            if game.player.dino_rect.colliderect(obstacle):
                 pygame.time.delay(500)
                 game.playing = False
                 break
